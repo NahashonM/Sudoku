@@ -1,0 +1,181 @@
+@import url("globals.css");
+
+body {
+    background-color: rgb(58, 58, 58);
+}
+
+.container {
+    width:fit-content;
+    display: block;
+}
+
+
+.grid
+{
+    width: fit-content;
+    height: fit-content;
+    border: var(--gridBoarderThickness) solid var(--gridBoarderColor);
+    background-color: var(--gridBgColor);
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.toolbar, .grid {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.block
+{
+    box-shadow:0px 0px 0px var(--gridBoarderThickness) var(--gridBoarderColor) inset;
+    -webkit-box-shadow:0px 0px 0px var(--gridBoarderThickness) var(--gridBoarderColor) inset;
+    -moz-box-shadow:0px 0px 0px var(--gridBoarderThickness) var(--gridBoarderColor) inset;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0;
+    padding: var(--gridBoarderThickness);
+}
+
+
+.block:focus-within{
+    background-color: var(--blockInFocusBgColor);
+}
+
+
+
+.cell {
+    position: relative;
+    width: var(--cellSize);
+    height: var(--cellSize);
+
+    box-shadow:0px 0px 0px var(--cellBoarderThickness) var(--cellBoarderColor) inset;
+    -webkit-box-shadow:0px 0px 0px var(--cellBoarderThickness) var(--cellBoarderColor) inset;
+    -moz-box-shadow:0px 0px 0px var(--cellBoarderThickness) var(--cellBoarderColor) inset;
+}
+
+
+.cell .cellNotes, .cellValue {
+    pointer-events: none
+}
+
+
+.cellValue {
+    position: absolute;
+    line-height: var(--cellSize);
+    font-size: var(--cellValueFontSize);
+    color: var(--cellValueFontColor);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: inline;
+    text-align: center;
+    z-index: 100;
+}
+
+.notEditable{
+    color: var(--cellConstantValueFontColor);
+}
+
+.cell:focus {
+    background-color: var(--cellInFocusBgColor);
+}
+
+.cellNotes {
+    position: absolute;
+    margin: var(--cellNotesMargin);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: var(--cellNotesFontSize);
+    color: var(--cellNotesFontColor);
+    z-index: 90;
+}
+
+.cellNotes ._1{  top: 0;    left: 0; }
+.cellNotes ._2{   top: 0; }
+.cellNotes ._3{   top: 0;   right: 0;   }
+.cellNotes ._4{   top: 33%; left: 0;    }
+.cellNotes ._5{   top: 33%; }
+.cellNotes ._6{   top: 33%; right: 0;    }
+.cellNotes ._7{   bottom: 0;  left: 0; }
+.cellNotes ._8{   bottom: 0;    }
+.cellNotes ._9{   bottom: 0;  right: 0; }
+
+.cellNotes ._2, ._5, ._8 {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+}
+
+.cellNotes ._1, ._2, ._3, ._4, ._5, ._6, ._7, ._8, ._9{
+    position: absolute;
+}
+
+@supports not (display: grid) {
+    .grid, .blockElements {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .grid { width: var(--gridSize); }
+    .block { width: var(--blockSize); }
+}
+
+
+
+.toolbar {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: var(--gridSize);
+    background-color: var(--toolBarBgColor);
+}
+
+.tools, .numbers {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+
+.tool, .number {
+    width: var(--toolSize);
+    height: var(--toolSize);
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(196, 74, 90);
+}
+
+.activeTool, .tool:hover, .number:hover {
+    background-color: rgb(0, 233, 250);
+    box-shadow: 0px 0px 30px rgb(0, 233, 250);
+}
+
+
+.grid::selection {
+background: transparent;
+}
+
+.grid::-moz-selection {
+background: transparent;
+}

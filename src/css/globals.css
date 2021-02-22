@@ -1,0 +1,34 @@
+
+:root {
+  --gridBgColor: rgb(167, 202, 255);
+  --gridBoarderColor: rgb(0, 0, 0);
+  --gridBoarderThickness: 2px;
+  --gridSize: calc(
+        (var(--cellSize) * 9) +
+        (var(--gridBoarderThickness) * 6)
+       );
+  
+  --blockSize: calc(
+      (var(--cellSize) * 3)
+    );
+  --blockInFocusBgColor: rgb(255, 246, 162);
+
+  --cellSize: 50px;
+  --cellBoarderThickness: 1px;
+  --cellBoarderColor: rgba(80, 80, 80, 0.589);
+
+  --cellValueFontSize: calc(var(--cellSize) / 2);
+  --cellValueFontColor: rgb(255, 0, 221);
+  --cellConstantValueFontColor: rgb(129, 21, 102);
+
+  --cellNotesFontSize: calc(var(--cellValueFontSize) / 2);
+  --cellNotesFontColor: rgba(102, 102, 102, 0.781);
+  --cellNotesMargin: calc((var(--cellSize) - (var(--cellNotesFontSize) * 3)) / 4);
+
+  --cellInFocusBgColor: rgb(255, 238, 85);
+  --peersInFocusBgColor: red;
+
+  --toolBarMargin: 8px;
+  --toolSize: 35px;
+  --toolBarBgColor: rgb(0, 255, 13);
+}
